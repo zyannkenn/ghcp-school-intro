@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="神山まるごと高専のカリキュラム・学科を紹介。テクノロジー・デザイン・起業家精神の3軸で構成される5年間の学びの流れをご覧ください。" />
+  <title>カリキュラム | 神山まるごと高専</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* タイムライン */
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin-inline: auto;
+      padding-left: calc(var(--space-md) + 8px);
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--clr-sage);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--space-md);
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: calc(-1 * var(--space-md) - 8px + 1px);
+      top: 4px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--clr-forest);
+      border: 3px solid var(--clr-sage);
+    }
+    .timeline-item__year {
+      font-family: var(--font-serif);
+      font-size: 1rem;
+      color: var(--clr-leaf);
+      font-weight: 600;
+      letter-spacing: .08em;
+      margin-bottom: .25rem;
+    }
+    .timeline-item__title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      color: var(--clr-forest);
+      margin-bottom: .5rem;
+    }
+    .timeline-item__text {
+      color: var(--clr-muted);
+      font-size: .9rem;
+      line-height: 1.9;
+    }
+
+    /* 科目テーブル */
+    .subject-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .9rem;
+    }
+    .subject-table th,
+    .subject-table td {
+      padding: .75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--clr-sage);
+    }
+    .subject-table th {
+      background: var(--clr-forest);
+      color: var(--clr-beige);
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: .06em;
+    }
+    .subject-table tr:nth-child(even) td {
+      background: var(--clr-beige);
+    }
+    .subject-table tbody tr:hover td {
+      background: rgba(107, 142, 78, .1);
+    }
+
+    /* 3軸アイコンカード */
+    .axis-card {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-md) var(--space-md) var(--space-lg);
+      border-top: 4px solid var(--clr-leaf);
+    }
+    .axis-card__icon {
+      font-size: 2.4rem;
+      margin-bottom: .75rem;
+    }
+    .axis-card__title {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--clr-forest);
+      margin-bottom: .5rem;
+    }
+    .axis-card__en {
+      font-size: .78rem;
+      color: var(--clr-leaf);
+      letter-spacing: .14em;
+      margin-bottom: .75rem;
+      font-weight: 500;
+    }
+    .axis-card__text {
+      color: var(--clr-muted);
+      font-size: .88rem;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="神山まるごと高専 トップへ">
+        神山まるごと高専
+        <span>KAMIYAMA MARUGOTO KOSEN</span>
+      </a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="グローバルナビゲーション">
+        <a href="index.html">トップ</a>
+        <a href="about.html">学校紹介</a>
+        <a href="curriculum.html">カリキュラム</a>
+        <a href="campus-life.html">キャンパスライフ</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <img
+        class="hero__bg"
+        src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1600&q=80"
+        alt="ノートとペンで学ぶイメージ"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container page-hero__body">
+        <h1 class="page-hero__title" id="page-title">カリキュラム・学科</h1>
+        <p class="page-hero__sub">CURRICULUM &amp; SUBJECTS</p>
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">トップ</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span aria-current="page">カリキュラム・学科</span>
+      </nav>
+    </div>
+
+    <!-- ============================================================
+         3軸の概説
+         ============================================================ -->
+    <section class="section" aria-labelledby="axis-title">
+      <div class="container">
+        <h2 class="section-heading" id="axis-title">学びの3軸</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+        <p class="section-sub">テクノロジー・デザイン・起業家精神を掛け合わせて学ぶことが<br />神山まるごと高専の最大の特徴です。</p>
+
+        <div class="grid-3">
+          <div class="axis-card fade-in">
+            <div class="axis-card__icon" aria-hidden="true">💻</div>
+            <h3 class="axis-card__title">テクノロジー</h3>
+            <p class="axis-card__en">TECHNOLOGY</p>
+            <p class="axis-card__text">
+              プログラミング（Python / JavaScript / Rust など）、数学・統計、
+              ハードウェア設計、データサイエンス、AIなど。
+              ものをつくる根幹となる技術的リテラシーを徹底的に鍛えます。
+            </p>
+          </div>
+          <div class="axis-card fade-in fade-in-delay-1">
+            <div class="axis-card__icon" aria-hidden="true">🎨</div>
+            <h3 class="axis-card__title">デザイン</h3>
+            <p class="axis-card__en">DESIGN</p>
+            <p class="axis-card__text">
+              UX/UIデザイン、プロダクトデザイン、空間デザイン、グラフィック、
+              映像表現。「なぜつくるか」という問いを起点に、形にする力と
+              伝える力を育てます。
+            </p>
+          </div>
+          <div class="axis-card fade-in fade-in-delay-2">
+            <div class="axis-card__icon" aria-hidden="true">🚀</div>
+            <h3 class="axis-card__title">起業家精神</h3>
+            <p class="axis-card__en">ENTREPRENEURSHIP</p>
+            <p class="axis-card__text">
+              ビジネスモデル、マーケティング、会計・法律、プロジェクトマネジメント、
+              コミュニケーション。アイデアを事業として成立させる一連のプロセスを
+              体験します。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         5年間のタイムライン
+         ============================================================ -->
+    <section class="section section--alt" aria-labelledby="timeline-title">
+      <div class="container">
+        <h2 class="section-heading" id="timeline-title">5年間の学びのロードマップ</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+
+        <div class="timeline" role="list">
+          <div class="timeline-item fade-in" role="listitem">
+            <p class="timeline-item__year">1年次</p>
+            <h3 class="timeline-item__title">基礎を固め、仲間と出会う</h3>
+            <p class="timeline-item__text">
+              プログラミング入門、数学、国語・英語、デザイン思考基礎、
+              寮生活スタート。全員が同じスタートラインから始め、
+              コミュニティの一員として神山での暮らしに慣れる1年間。
+            </p>
+          </div>
+
+          <div class="timeline-item fade-in fade-in-delay-1" role="listitem">
+            <p class="timeline-item__year">2年次</p>
+            <h3 class="timeline-item__title">3軸の基礎を横断的に学ぶ</h3>
+            <p class="timeline-item__text">
+              情報理論、アルゴリズム、UXリサーチ、ビジネス基礎、チームプロジェクト（地域課題）。
+              3軸すべてに触れながら、自分の関心領域を探っていく。
+            </p>
+          </div>
+
+          <div class="timeline-item fade-in" role="listitem">
+            <p class="timeline-item__year">3年次</p>
+            <h3 class="timeline-item__title">応用と特化——得意を伸ばす</h3>
+            <p class="timeline-item__text">
+              データサイエンス / AI、プロダクトデザイン、スタートアップ実践。
+              選択科目で自分の強みとなる軸を深め始める中盤。
+              インターンや企業プロジェクトへの参加も始まる。
+            </p>
+          </div>
+
+          <div class="timeline-item fade-in fade-in-delay-1" role="listitem">
+            <p class="timeline-item__year">4年次</p>
+            <h3 class="timeline-item__title">実践——本物の課題に挑む</h3>
+            <p class="timeline-item__text">
+              連携企業・地域との本格プロジェクト。チームで要件定義からリリースまでを担当。
+              海外スタディツアーや起業家メンタリングも実施される。
+            </p>
+          </div>
+
+          <div class="timeline-item fade-in" role="listitem">
+            <p class="timeline-item__year">5年次</p>
+            <h3 class="timeline-item__title">卒業研究・進路へ</h3>
+            <p class="timeline-item__text">
+              卒業研究（プロダクト / 論文 / 事業計画から選択）。
+              就職・大学編入・起業など各自の進路に向けた準備を並行して進める。
+              5年間の集大成を卒業発表会で発表。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         主要科目一覧
+         ============================================================ -->
+    <section class="section" aria-labelledby="subjects-title">
+      <div class="container">
+        <h2 class="section-heading" id="subjects-title">主要科目一覧（抜粋）</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+        <p class="section-sub">実際のカリキュラムの詳細は公式サイトをご参照ください。</p>
+
+        <div class="fade-in" style="overflow-x:auto;">
+          <table class="subject-table" aria-label="主要科目一覧">
+            <thead>
+              <tr>
+                <th scope="col">分野</th>
+                <th scope="col">科目例</th>
+                <th scope="col">対象年次</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="tag">テクノロジー</span></td>
+                <td>プログラミング基礎、アルゴリズムとデータ構造、データサイエンス、AI・機械学習、組み込みシステム</td>
+                <td>1〜4年</td>
+              </tr>
+              <tr>
+                <td><span class="tag">テクノロジー</span></td>
+                <td>Webアプリ開発、クラウドインフラ、セキュリティ基礎</td>
+                <td>2〜5年</td>
+              </tr>
+              <tr>
+                <td><span class="tag">デザイン</span></td>
+                <td>デザイン思考、UXリサーチ、UIプロトタイピング、グラフィックデザイン</td>
+                <td>1〜4年</td>
+              </tr>
+              <tr>
+                <td><span class="tag">デザイン</span></td>
+                <td>映像制作、空間デザイン、ブランディング</td>
+                <td>3〜5年</td>
+              </tr>
+              <tr>
+                <td><span class="tag">起業家精神</span></td>
+                <td>ビジネスモデルキャンバス、会計・財務基礎、マーケティング、プロジェクトマネジメント</td>
+                <td>2〜5年</td>
+              </tr>
+              <tr>
+                <td><span class="tag">起業家精神</span></td>
+                <td>スタートアップ実践、法律基礎（知財・契約）、ピッチ・プレゼンテーション</td>
+                <td>3〜5年</td>
+              </tr>
+              <tr>
+                <td>教養・共通</td>
+                <td>数学（線形代数・確率統計）、国語・文章表現、英語（技術英語含む）、倫理学・社会学</td>
+                <td>1〜5年</td>
+              </tr>
+              <tr>
+                <td>プロジェクト</td>
+                <td>地域連携プロジェクト（1〜3年）、企業連携プロジェクト（3〜4年）、卒業研究（5年）</td>
+                <td>1〜5年</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p style="text-align:center;margin-top:var(--space-md);">
+          <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer" class="btn btn--outline">
+            公式サイトで詳細を確認 ↗
+          </a>
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">
+            神山まるごと高専
+            <span>KAMIYAMA MARUGOTO KOSEN</span>
+          </a>
+          <p>テクノロジー × デザイン × 起業家精神。<br />徳島・神山の自然の中で育む、<br />5年間の全寮制教育。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>サイトマップ</h4>
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="about.html">学校紹介</a></li>
+            <li><a href="curriculum.html">カリキュラム</a></li>
+            <li><a href="campus-life.html">キャンパスライフ</a></li>
+            <li><a href="access.html">アクセス</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>所在地</h4>
+          <address>
+            〒771-3310<br />
+            徳島県名西郡神山町神領<br />
+            <br />
+            <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイト ↗</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>© 2026 神山まるごと高専 紹介ページ（非公式サンプル）</small>
+        <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイトはこちら</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
