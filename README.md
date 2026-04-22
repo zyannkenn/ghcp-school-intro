@@ -1,6 +1,12 @@
 # ghcp-school-intro
 
-神山まるごと高専の紹介ページ（非公式サンプル）を GitHub Pages で公開するリポジトリです。
+神山まるごと高専の紹介ページ（**非公式の紹介サンプル**）を GitHub Pages で公開するリポジトリです。
+
+> ⚠️ 本サイトは学習目的で制作した非公式サンプルであり、公式の発信ではありません。最新・正確な情報は [公式サイト](https://kamiyama.ac.jp/) をご確認ください。
+
+## デザインコンセプト
+
+**ミニマル和風・森の中** — 静謐・自然光・余白を基調に、明朝体（Shippori Mincho）と和紙ベージュ、朱色の控えめなアクセントで構成。和モチーフ（葉・亀甲紋・年輪）はインラインSVGで実装。
 
 ## サイト構成
 
@@ -11,15 +17,22 @@
 | `curriculum.html` | カリキュラム（3軸 + タイムライン + 科目一覧） |
 | `campus-life.html` | キャンパスライフ（寮生活・行事・ギャラリー） |
 | `access.html` | アクセス（地図・交通手段） |
-| `assets/css/style.css` | 共通スタイル（配色変数・コンポーネント） |
+| `assets/css/style.css` | 共通スタイル（ミニマル和風） |
 | `assets/js/main.js` | 共通スクリプト（メニュー・アニメーション・ライトボックス） |
+| `.nojekyll` | GitHub Pages で Jekyll 処理を無効化 |
+| `spec/` | 要件・設計・タスク（Spec-Driven Workflow 成果物） |
+
+## 公開 URL
+
+- https://zyannkenn.github.io/ghcp-school-intro/
 
 ## GitHub Pages の公開設定
 
 1. リポジトリの **Settings → Pages** を開く
 2. **Source** を `Deploy from a branch` に設定
 3. **Branch** を `main` / `/(root)` に設定して **Save**
-4. `https://zyannkenn.github.io/ghcp-school-intro/` でアクセス可能になります
+4. 数分後、上記 URL でアクセス可能になります
+5. 本リポジトリには `.nojekyll` が含まれるため、Jekyll ビルドはスキップされます
 
 ## ローカルで確認する方法
 
@@ -27,6 +40,12 @@
 python3 -m http.server 8000
 # → http://localhost:8000/ で確認
 ```
+
+## Spec / 設計ドキュメント
+
+- [spec/requirements.md](spec/requirements.md) — 要件（EARS 記法）
+- [spec/design.md](spec/design.md) — デザイントークン・コンポーネント・アーキテクチャ
+- [spec/tasks.md](spec/tasks.md) — 実装タスクと検証チェックリスト
 
 ---
 
