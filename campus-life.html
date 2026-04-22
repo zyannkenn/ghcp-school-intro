@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="神山まるごと高専のキャンパスライフ。全寮制の暮らし・部活動・行事・ギャラリーをご紹介します。" />
+  <title>キャンパスライフ | 神山まるごと高専</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* ギャラリーグリッド */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+    }
+    @media (max-width: 767px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    .gallery__item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      aspect-ratio: 4/3;
+      background: var(--clr-beige);
+    }
+    .gallery__item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    .gallery__item:hover img { transform: scale(1.06); }
+
+    .gallery__item::after {
+      content: attr(data-caption);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(36,44,30,.75));
+      color: var(--clr-beige);
+      font-size: .78rem;
+      padding: 1.5rem .75rem .5rem;
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .gallery__item:hover::after,
+    .gallery__item:focus::after { opacity: 1; }
+
+    .gallery__item--wide {
+      grid-column: span 2;
+    }
+
+    /* ライフスタイルカード */
+    .life-card {
+      display: flex;
+      gap: var(--space-md);
+      align-items: flex-start;
+      padding: var(--space-md);
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .life-card__icon {
+      font-size: 2.2rem;
+      flex-shrink: 0;
+    }
+    .life-card__title {
+      font-family: var(--font-serif);
+      color: var(--clr-forest);
+      font-size: 1.1rem;
+      margin-bottom: .4rem;
+    }
+    .life-card__text {
+      color: var(--clr-muted);
+      font-size: .88rem;
+      line-height: 1.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="神山まるごと高専 トップへ">
+        神山まるごと高専
+        <span>KAMIYAMA MARUGOTO KOSEN</span>
+      </a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="グローバルナビゲーション">
+        <a href="index.html">トップ</a>
+        <a href="about.html">学校紹介</a>
+        <a href="curriculum.html">カリキュラム</a>
+        <a href="campus-life.html">キャンパスライフ</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <img
+        class="hero__bg"
+        src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=1600&q=80"
+        alt="キャンプファイヤー・自然の中の学びの風景"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container page-hero__body">
+        <h1 class="page-hero__title" id="page-title">キャンパスライフ</h1>
+        <p class="page-hero__sub">CAMPUS LIFE</p>
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">トップ</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span aria-current="page">キャンパスライフ</span>
+      </nav>
+    </div>
+
+    <!-- ============================================================
+         全寮制の生活
+         ============================================================ -->
+    <section class="section" aria-labelledby="life-title">
+      <div class="container">
+        <h2 class="section-heading" id="life-title">全寮制の5年間</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+        <p class="section-sub">同じ屋根の下で暮らし、共に学ぶ。<br />寮生活そのものが最大の教育環境です。</p>
+
+        <div style="display:grid;gap:var(--space-sm);max-width:780px;margin-inline:auto;">
+          <div class="life-card fade-in">
+            <span class="life-card__icon" aria-hidden="true">🏠</span>
+            <div>
+              <h3 class="life-card__title">寮生活</h3>
+              <p class="life-card__text">
+                全学生が寮に入居。料理・掃除・買い出しなど日常の運営を学生自ら担うことで、
+                社会性と自律心を育みます。週に数回、異学年が集まるワークショップも開催されます。
+              </p>
+            </div>
+          </div>
+
+          <div class="life-card fade-in fade-in-delay-1">
+            <span class="life-card__icon" aria-hidden="true">🍳</span>
+            <div>
+              <h3 class="life-card__title">食事・農業体験</h3>
+              <p class="life-card__text">
+                地元農家と連携し、食材の栽培から収穫・調理までを体験する機会があります。
+                神山の豊かな食文化に触れ、食と地域のつながりを考える授業外の学びも充実。
+              </p>
+            </div>
+          </div>
+
+          <div class="life-card fade-in fade-in-delay-2">
+            <span class="life-card__icon" aria-hidden="true">🌲</span>
+            <div>
+              <h3 class="life-card__title">自然体験</h3>
+              <p class="life-card__text">
+                川遊び、登山、キャンプなど神山の自然を活かしたアクティビティが日常にあります。
+                都市では得られない感性と体験が、クリエイティビティの土台になります。
+              </p>
+            </div>
+          </div>
+
+          <div class="life-card fade-in">
+            <span class="life-card__icon" aria-hidden="true">🎭</span>
+            <div>
+              <h3 class="life-card__title">行事・地域交流</h3>
+              <p class="life-card__text">
+                学園祭、卒業発表会、神山町の祭り参加、地域のイベントでの出展など、
+                ローカルコミュニティとの交流が学校生活の大切な一部です。
+              </p>
+            </div>
+          </div>
+
+          <div class="life-card fade-in fade-in-delay-1">
+            <span class="life-card__icon" aria-hidden="true">⚽</span>
+            <div>
+              <h3 class="life-card__title">部活動・サークル</h3>
+              <p class="life-card__text">
+                学生主体の部活・サークル活動が盛ん。スポーツ系から
+                ものづくり系・音楽系まで、放課後の時間が創造の場になります。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         フォトギャラリー
+         ============================================================ -->
+    <section class="section section--alt" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 class="section-heading" id="gallery-title">フォトギャラリー</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+        <p class="section-sub">画像をクリックすると拡大表示できます。</p>
+
+        <div class="gallery fade-in" role="list">
+          <div
+            class="gallery__item gallery__item--wide"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1200&q=80"
+            data-alt="神山の森の風景"
+            data-caption="神山の豊かな自然"
+            tabindex="0"
+            aria-label="神山の豊かな自然（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=800&q=70"
+              alt="神山の森の風景"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80"
+            data-alt="グループワークの様子"
+            data-caption="チームでのプロジェクト学習"
+            tabindex="0"
+            aria-label="チームでのプロジェクト学習（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=70"
+              alt="グループワークの様子"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?w=1200&q=80"
+            data-alt="川遊びをする人たち"
+            data-caption="神山の清流での自然体験"
+            tabindex="0"
+            aria-label="神山の清流での自然体験（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1599059813005-11265ba4b4ce?w=600&q=70"
+              alt="川遊びをする人たち"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80"
+            data-alt="食事の準備・料理"
+            data-caption="みんなで作るごはんの時間"
+            tabindex="0"
+            aria-label="みんなで作るごはんの時間（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=70"
+              alt="みんなで作る食事の様子"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item gallery__item--wide"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1200&q=80"
+            data-alt="学生たちがコードを書いている"
+            data-caption="ものづくりに集中する夜"
+            tabindex="0"
+            aria-label="ものづくりに集中する夜（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=70"
+              alt="学生たちがコードを書いている"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+            data-alt="山のパノラマ"
+            data-caption="神山の山頂からの眺め"
+            tabindex="0"
+            aria-label="神山の山頂からの眺め（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=70"
+              alt="山のパノラマ・神山から見る景色"
+              loading="lazy"
+            />
+          </div>
+
+          <div
+            class="gallery__item"
+            role="listitem"
+            data-src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=1200&q=80"
+            data-alt="プレゼンテーションをする学生"
+            data-caption="ピッチ発表会の様子"
+            tabindex="0"
+            aria-label="ピッチ発表会の様子（クリックで拡大）"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&q=70"
+              alt="プレゼンテーション・ピッチの様子"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CTA
+         ============================================================ -->
+    <section class="section" aria-labelledby="cta-title">
+      <div class="container" style="text-align:center;">
+        <h2 class="section-heading" id="cta-title">神山への道を確認する</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+        <p style="color:var(--clr-muted);margin-bottom:var(--space-md);">実際に神山を訪れてみませんか？</p>
+        <a href="access.html" class="btn btn--primary">アクセスを確認する</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">
+            神山まるごと高専
+            <span>KAMIYAMA MARUGOTO KOSEN</span>
+          </a>
+          <p>テクノロジー × デザイン × 起業家精神。<br />徳島・神山の自然の中で育む、<br />5年間の全寮制教育。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>サイトマップ</h4>
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="about.html">学校紹介</a></li>
+            <li><a href="curriculum.html">カリキュラム</a></li>
+            <li><a href="campus-life.html">キャンパスライフ</a></li>
+            <li><a href="access.html">アクセス</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>所在地</h4>
+          <address>
+            〒771-3310<br />
+            徳島県名西郡神山町神領<br />
+            <br />
+            <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイト ↗</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>© 2026 神山まるごと高専 紹介ページ（非公式サンプル）</small>
+        <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイトはこちら</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

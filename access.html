@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="神山まるごと高専へのアクセス情報。徳島県名西郡神山町神領への交通手段・地図・所在地をご案内します。" />
+  <title>アクセス | 神山まるごと高専</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Google Maps 埋め込みラッパー */
+    .map-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/7;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    @media (max-width: 767px) {
+      .map-wrapper { aspect-ratio: 4/3; }
+    }
+
+    /* 交通手段カード */
+    .transport-card {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-md);
+      border-top: 3px solid var(--clr-leaf);
+    }
+    .transport-card__icon {
+      font-size: 2rem;
+      margin-bottom: .5rem;
+    }
+    .transport-card__title {
+      font-family: var(--font-serif);
+      color: var(--clr-forest);
+      font-size: 1.1rem;
+      margin-bottom: .75rem;
+    }
+    .transport-card__step {
+      display: flex;
+      gap: .75rem;
+      align-items: flex-start;
+      margin-bottom: .5rem;
+      font-size: .88rem;
+      color: var(--clr-muted);
+      line-height: 1.7;
+    }
+    .transport-card__step-num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--clr-forest);
+      color: var(--clr-white);
+      font-size: .75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .transport-card__note {
+      margin-top: .75rem;
+      padding: .5rem .75rem;
+      background: var(--clr-beige);
+      border-radius: var(--radius-sm);
+      font-size: .82rem;
+      color: var(--clr-muted);
+    }
+
+    /* 所在地ブロック */
+    .address-box {
+      background: var(--clr-white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-md) var(--space-lg);
+      display: flex;
+      gap: var(--space-lg);
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .address-box dt {
+      font-family: var(--font-serif);
+      color: var(--clr-leaf);
+      font-size: .85rem;
+      letter-spacing: .1em;
+      margin-bottom: .25rem;
+      margin-top: 1rem;
+    }
+    .address-box dt:first-child { margin-top: 0; }
+    .address-box dd {
+      color: var(--clr-ink);
+      font-size: .95rem;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="index.html" class="site-logo" aria-label="神山まるごと高専 トップへ">
+        神山まるごと高専
+        <span>KAMIYAMA MARUGOTO KOSEN</span>
+      </a>
+      <button class="hamburger" aria-expanded="false" aria-controls="site-nav" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="グローバルナビゲーション">
+        <a href="index.html">トップ</a>
+        <a href="about.html">学校紹介</a>
+        <a href="curriculum.html">カリキュラム</a>
+        <a href="campus-life.html">キャンパスライフ</a>
+        <a href="access.html">アクセス</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <!-- ページヒーロー -->
+    <section class="page-hero" aria-labelledby="page-title">
+      <img
+        class="hero__bg"
+        src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80"
+        alt="山道・自然の中の道"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="container page-hero__body">
+        <h1 class="page-hero__title" id="page-title">アクセス</h1>
+        <p class="page-hero__sub">ACCESS &amp; MAP</p>
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <div class="container">
+      <nav class="breadcrumb" aria-label="パンくずリスト">
+        <a href="index.html">トップ</a>
+        <span class="sep" aria-hidden="true">›</span>
+        <span aria-current="page">アクセス</span>
+      </nav>
+    </div>
+
+    <!-- ============================================================
+         所在地
+         ============================================================ -->
+    <section class="section" aria-labelledby="address-title">
+      <div class="container">
+        <h2 class="section-heading" id="address-title">所在地</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+
+        <div class="address-box fade-in">
+          <dl>
+            <dt>住所</dt>
+            <dd>〒771-3310<br />徳島県名西郡神山町神領字西上角13</dd>
+
+            <dt>開校</dt>
+            <dd>2023年4月</dd>
+
+            <dt>学校区分</dt>
+            <dd>私立高等専門学校（5年制）</dd>
+
+            <dt>公式サイト</dt>
+            <dd>
+              <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer"
+                 style="color:var(--clr-leaf);text-decoration:underline;">
+                kamiyama.ac.jp ↗
+              </a>
+            </dd>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         地図
+         ============================================================ -->
+    <section class="section section--alt" aria-labelledby="map-title">
+      <div class="container">
+        <h2 class="section-heading" id="map-title">地図</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+
+        <div class="map-wrapper fade-in">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3293.1857938934996!2d134.38257431548157!3d33.99200448062463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x354fe2ff35cc1b3b%3A0xff6c63aff15ce843!2z56We5bGx44G+44KL44GU44Go9ad96eSB5a6kKOeuoeeUsSkh!5e0!3m2!1sja!2sjp!4v1700000000000!5m2!1sja!2sjp"
+            title="神山まるごと高専の地図"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <p style="text-align:center;margin-top:var(--space-sm);">
+          <a
+            href="https://maps.google.com/maps?q=神山まるごと高専"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn--outline"
+          >
+            Google マップで開く ↗
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         交通手段
+         ============================================================ -->
+    <section class="section" aria-labelledby="transport-title">
+      <div class="container">
+        <h2 class="section-heading" id="transport-title">交通手段・アクセス方法</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+
+        <div class="grid-3">
+          <!-- 電車 + バス -->
+          <div class="transport-card fade-in">
+            <div class="transport-card__icon" aria-hidden="true">🚃</div>
+            <h3 class="transport-card__title">電車 + バス</h3>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">1</span>
+              <span>JR徳島線「貞光駅」または「神山駅」で下車</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">2</span>
+              <span>神山ふるさとバスへ乗り換え（本数に注意）</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">3</span>
+              <span>「神山まるごと高専前」バス停で下車</span>
+            </div>
+            <p class="transport-card__note">
+              ※ バスの時刻は神山町公式サイトでご確認ください。
+            </p>
+          </div>
+
+          <!-- 車 -->
+          <div class="transport-card fade-in fade-in-delay-1">
+            <div class="transport-card__icon" aria-hidden="true">🚗</div>
+            <h3 class="transport-card__title">車（自動車）</h3>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">1</span>
+              <span>徳島ICより国道438号を西へ約40分</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">2</span>
+              <span>神山町中心部を目指し、看板に沿って進む</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">3</span>
+              <span>学校専用駐車場あり（来校前に要確認）</span>
+            </div>
+            <p class="transport-card__note">
+              ※ 山道のため、運転にはご注意ください。
+            </p>
+          </div>
+
+          <!-- 飛行機 -->
+          <div class="transport-card fade-in fade-in-delay-2">
+            <div class="transport-card__icon" aria-hidden="true">✈️</div>
+            <h3 class="transport-card__title">飛行機でのアクセス</h3>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">1</span>
+              <span>徳島阿波おどり空港に到着</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">2</span>
+              <span>空港からリムジンバスまたはレンタカーで徳島市内へ</span>
+            </div>
+            <div class="transport-card__step">
+              <span class="transport-card__step-num">3</span>
+              <span>徳島市内から車または路線バスで神山へ（約1時間）</span>
+            </div>
+            <p class="transport-card__note">
+              ※ 東京・大阪・名古屋方面からは新幹線 + 高速バスの利用も便利です。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         周辺情報
+         ============================================================ -->
+    <section class="section section--alt" aria-labelledby="around-title">
+      <div class="container">
+        <h2 class="section-heading" id="around-title">神山町について</h2>
+        <div class="leaf-divider" aria-hidden="true">🌿</div>
+
+        <div style="max-width:720px;margin-inline:auto;text-align:center;" class="fade-in">
+          <p style="color:var(--clr-muted);line-height:1.9;margin-bottom:var(--space-md);">
+            神山町は徳島県の山間部に位置する人口約4,500人の小さな町。
+            清流・鮎喰川が流れる自然豊かな環境に、全国から移住者やクリエイターが集い、
+            「創造的過疎」の先進地として注目されてきました。
+            サテライトオフィスや古民家カフェ、アーティストの工房など、
+            訪れるたびに新しい出会いがある魅力的な町です。
+          </p>
+          <a href="https://www.town.kamiyama.lg.jp/" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            神山町公式サイト ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- フッター -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="site-logo">
+            神山まるごと高専
+            <span>KAMIYAMA MARUGOTO KOSEN</span>
+          </a>
+          <p>テクノロジー × デザイン × 起業家精神。<br />徳島・神山の自然の中で育む、<br />5年間の全寮制教育。</p>
+        </div>
+        <nav class="footer-nav" aria-label="フッターナビゲーション">
+          <h4>サイトマップ</h4>
+          <ul>
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="about.html">学校紹介</a></li>
+            <li><a href="curriculum.html">カリキュラム</a></li>
+            <li><a href="campus-life.html">キャンパスライフ</a></li>
+            <li><a href="access.html">アクセス</a></li>
+          </ul>
+        </nav>
+        <div class="footer-contact">
+          <h4>所在地</h4>
+          <address>
+            〒771-3310<br />
+            徳島県名西郡神山町神領<br />
+            <br />
+            <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイト ↗</a>
+          </address>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <small>© 2026 神山まるごと高専 紹介ページ（非公式サンプル）</small>
+        <a href="https://kamiyama.ac.jp/" target="_blank" rel="noopener noreferrer">公式サイトはこちら</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
